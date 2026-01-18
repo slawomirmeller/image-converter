@@ -86,6 +86,16 @@ After installation you should find the app in:
 - Start Menu → `Image Tools` → `Image to WebP Converter`
 - Desktop shortcut: `Image to WebP Converter` (if chosen by installer)
 
+### Fixing Shortcut Issues
+
+If shortcuts don't work properly after installation (Windows shows "searching" before launching), run the fix script:
+
+1. Navigate to the project directory
+2. Right-click `fix-shortcuts.ps1` and select **Run with PowerShell** (as Administrator)
+3. The script will recreate shortcuts with correct paths and icons
+
+Alternatively, rebuild the installer with the updated script which includes proper icon paths.
+
 To uninstall the application run the generated uninstaller in the application folder (by default):
 
 ```

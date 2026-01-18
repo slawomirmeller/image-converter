@@ -131,11 +131,11 @@ if not exist "%START_MENU%" mkdir "%START_MENU%"
 
 :: Create Start Menu shortcut
 echo Creating Start Menu shortcut...
-powershell -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%START_MENU%\Image to WebP Converter.lnk'); $s.TargetPath = '%INSTALL_DIR%\ImageToWebPConverter.exe'; $s.WorkingDirectory = '%INSTALL_DIR%'; $s.Description = 'Convert images to WebP format'; $s.Save()"
+powershell -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%START_MENU%\Image to WebP Converter.lnk'); $s.TargetPath = '%INSTALL_DIR%\ImageToWebPConverter.exe'; $s.WorkingDirectory = '%INSTALL_DIR%'; $s.IconLocation = '%INSTALL_DIR%\ImageToWebPConverter.exe,0'; $s.Description = 'Convert images to WebP format'; $s.Save()"
 
 :: Create Desktop shortcut
 echo Creating Desktop shortcut...
-powershell -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%DESKTOP_SHORTCUT%'); $s.TargetPath = '%INSTALL_DIR%\ImageToWebPConverter.exe'; $s.WorkingDirectory = '%INSTALL_DIR%'; $s.Description = 'Convert images to WebP format'; $s.Save()"
+powershell -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%DESKTOP_SHORTCUT%'); $s.TargetPath = '%INSTALL_DIR%\ImageToWebPConverter.exe'; $s.WorkingDirectory = '%INSTALL_DIR%'; $s.IconLocation = '%INSTALL_DIR%\ImageToWebPConverter.exe,0'; $s.Description = 'Convert images to WebP format'; $s.Save()"
 
 :: Create uninstaller
 echo Creating uninstaller...
