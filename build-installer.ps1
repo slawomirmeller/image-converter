@@ -112,6 +112,8 @@ if %errorLevel% neq 0 (
     exit /b 1
 )
 
+:: Get the directory where this script is located
+set "SCRIPT_DIR=%~dp0"
 set "INSTALL_DIR=%ProgramFiles%\ImageToWebPConverter"
 set "START_MENU=%ProgramData%\Microsoft\Windows\Start Menu\Programs\Image Tools"
 set "DESKTOP_SHORTCUT=%PUBLIC%\Desktop\Image to WebP Converter.lnk"
@@ -119,12 +121,18 @@ set "DESKTOP_SHORTCUT=%PUBLIC%\Desktop\Image to WebP Converter.lnk"
 echo Installing to: %INSTALL_DIR%
 echo.
 
-:: Create installation directory
-if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
+:: Remove old installation if exists
+if exist "%INSTALL_DIR%" (
+    echo Removing old installation...
+    rd /s /q "%INSTALL_DIR%" 2>nul
+)
 
-:: Copy all files
+:: Create installation directory
+mkdir "%INSTALL_DIR%"
+
+:: Copy all files from script directory
 echo Copying files...
-xcopy /E /I /Y "ImageToWebPConverter" "%INSTALL_DIR%" >nul
+xcopy /E /I /Y "%SCRIPT_DIR%ImageToWebPConverter" "%INSTALL_DIR%" >nul
 
 :: Create Start Menu folder
 if not exist "%START_MENU%" mkdir "%START_MENU%"
